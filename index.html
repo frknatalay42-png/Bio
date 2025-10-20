@@ -44,6 +44,7 @@
       align-items: center;
       padding: 20px 0;
       z-index: 100;
+      position: relative;
     }
     
     .nav-item {
@@ -73,6 +74,45 @@
       font-weight: 500;
     }
     
+    /* Language Switcher in Navigation */
+    .nav-language-switcher {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 10px;
+    }
+    
+    .nav-lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: var(--light-color);
+      padding: 4px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-lang-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .nav-lang-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
     /* Content Area */
     .content-area {
       flex: 1;
@@ -99,7 +139,7 @@
     
     /* Hero Section - IMPROVED TYPOGRAPHY */
     .hero-section {
-      background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('./img1.jpg');
+      background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('./img111.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -279,32 +319,6 @@
       width: 30px;
     }
     
-    /* Language Switcher */
-    .language-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    
-    .lang-btn {
-      background: transparent;
-      border: 1px solid var(--dark-color);
-      color: var(--dark-color);
-      padding: 5px 10px;
-      margin-left: 5px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .lang-btn.active {
-      background-color: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-    }
-    
     /* Form Styles */
     .form-control {
       border-radius: 5px;
@@ -359,6 +373,19 @@
         margin: 0;
       }
       
+      .nav-language-switcher {
+        position: static;
+        order: -1;
+        margin-right: auto;
+        padding-left: 15px;
+      }
+      
+      .nav-lang-btn {
+        width: 35px;
+        height: 30px;
+        font-size: 0.8rem;
+      }
+      
       .content-area {
         height: calc(100vh - 70px);
       }
@@ -390,20 +417,44 @@
         font-size: 1rem;
         padding: 6px 15px;
       }
+      
+      .nav-language-switcher {
+        padding-left: 10px;
+      }
+      
+      .nav-lang-btn {
+        width: 30px;
+        height: 25px;
+        font-size: 0.7rem;
+        padding: 2px 5px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-language-switcher {
+        gap: 3px;
+      }
+      
+      .nav-lang-btn {
+        width: 28px;
+        height: 24px;
+        font-size: 0.65rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container-fluid">
-    <div class="language-switcher">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="nl">NL</button>
-      <button class="lang-btn" data-lang="tr">TR</button>
-    </div>
-    
     <div class="main-container">
       <!-- Navigation Sidebar -->
       <div class="nav-sidebar">
+        <!-- Language Switcher in Navigation -->
+        <div class="nav-language-switcher">
+          <button class="nav-lang-btn active" data-lang="en">EN</button>
+          <button class="nav-lang-btn" data-lang="nl">NL</button>
+          <button class="nav-lang-btn" data-lang="tr">TR</button>
+        </div>
+        
         <div class="nav-item active" data-target="hero">
           <i class="bi bi-house nav-icon"></i>
           <div class="nav-label" data-key="nav-home">Home</div>
@@ -448,7 +499,7 @@
         <section id="about" class="content-section">
           <div class="row h-100 align-items-center">
             <div class="col-md-4 text-center">
-              <img src="./img2.jpg" alt="Furkan Atalay" class="profile-img">
+              <img src="./img1.jpg" alt="Furkan Atalay" class="profile-img">
             </div>
             <div class="col-md-8">
               <h2 data-key="about-title">About Me</h2>
@@ -564,13 +615,13 @@
             <div class="portfolio-item">
               <img src="./porto1.jpg" alt="Project 1" class="portfolio-img">
               <div class="portfolio-overlay">
-                <h4>Real Madrid Trivia</h4>
-                <p>Full-stack Real Madrid Trivia game project</p>
+                <h4>E-commerce Platform</h4>
+                <p>Full-stack e-commerce solution with React and Node.js</p>
               </div>
             </div>
             
             <div class="portfolio-item">
-              <img src="./" alt="Project 2" class="portfolio-img">
+              <img src="./porto1.jpg" alt="Project 2" class="portfolio-img">
               <div class="portfolio-overlay">
                 <h4>Task Management App</h4>
                 <p>Python-based application with Flask and SQLite</p>
@@ -578,7 +629,7 @@
             </div>
             
             <div class="portfolio-item">
-              <img src="./" alt="Project 3" class="portfolio-img">
+              <img src="./porto1.jpg" alt="Project 3" class="portfolio-img">
               <div class="portfolio-overlay">
                 <h4>Weather Dashboard</h4>
                 <p>JavaScript application with API integration</p>
@@ -586,7 +637,7 @@
             </div>
             
             <div class="portfolio-item">
-              <img src="./" alt="Project 4" class="portfolio-img">
+              <img src="./porto1.jpg" alt="Project 4" class="portfolio-img">
               <div class="portfolio-overlay">
                 <h4>Portfolio Website</h4>
                 <p>Responsive design with HTML, CSS, and JavaScript</p>
@@ -772,9 +823,9 @@
       }
     };
     
-    document.querySelectorAll('.lang-btn').forEach(button => {
+    document.querySelectorAll('.nav-lang-btn').forEach(button => {
       button.addEventListener('click', function() {
-        document.querySelectorAll('.lang-btn').forEach(btn => {
+        document.querySelectorAll('.nav-lang-btn').forEach(btn => {
           btn.classList.remove('active');
         });
         
@@ -840,7 +891,7 @@
       submitButton.textContent = 'Sending...';
       submitButton.disabled = true;
       
-      emailjs.sendForm('service_wtmzdn9', 'template_7zz9c0a', this)
+      emailjs.sendForm('service_wtmzdn9', 'template_wbx8clh', this)
         .then(function() {
           statusDiv.innerHTML = '<div class="alert alert-success">Message sent successfully!</div>';
           document.getElementById('contact-form').reset();
